@@ -11,7 +11,7 @@ public class ComplexProgramsSolved {
 	// SwappingTwoNumbers
 	public static void main(String[] args) {
 
-		findDuplicateElementsInIntegerArray(new int[] { 1, 2, 5, 5, 5 });
+		// findDuplicateElementsInIntegerArray(new int[] { 1, 2, 5, 5, 5 });
 		// findDuplicateElementsInStringArray(new String[] { "A", "B", "B", "C", "C",
 		// "A", "D" });
 		// reverserString("BHANDEGAONKAR");
