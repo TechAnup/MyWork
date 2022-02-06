@@ -11,6 +11,10 @@ public class ComplexProgramsSolved {
 	// SwappingTwoNumbers
 	public static void main(String[] args) {
 
+		// generateFibonacciSeries();
+		// findRecursiveFactorial(4);
+		// findFactorial(4);
+		// findSumOfDigit(1234);
 		// findDuplicateElementsInIntegerArray(new int[] { 1, 2, 5, 5, 5 });
 		// findDuplicateElementsInStringArray(new String[] { "A", "B", "B", "C", "C",
 		// "A", "D" });
@@ -18,6 +22,52 @@ public class ComplexProgramsSolved {
 		// reverserNumbers(1234567);
 		// swappingOfTwoNumbers(20, 40);
 
+	}
+
+	// 0 1 1 2 3 5 8 13 21 34 55 89.
+	private static void generateFibonacciSeries() {
+
+		int first = 0;
+		int second = 1;
+		// System.out.println("Fibonacci Series:");
+		System.out.println(first);
+		System.out.println(second);
+		for (int i = 0; i < 20; i++) {
+			int temp = first + second;
+			first = second;
+			second = temp;
+			System.out.println(temp);
+		}
+	}
+
+	private static int findRecursiveFactorial(int value) {
+		if (value == 0)
+			return 1;
+		else
+			return (value * findRecursiveFactorial(value - 1));
+	}
+
+	private static int findFactorial(int value) {
+		int factorial = 1;
+		while (value > 0) {
+			factorial *= value;
+			value--;
+		}
+		return factorial;
+	}
+
+	private static int findSumOfDigit(int value) {
+		int sum = 0;
+		int remainder = 0;
+		while (value > 0) {
+
+			remainder = value % 10;
+			value = value / 10;
+			sum += remainder;
+
+			System.out.println("Remainder: [" + remainder + "], value: [" + value + "] sum: [" + sum + "]");
+		}
+		return sum;
 	}
 
 	private static void findDuplicateElementsInIntegerArray(int[] intValues) {

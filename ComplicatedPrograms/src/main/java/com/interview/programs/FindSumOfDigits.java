@@ -2,25 +2,27 @@ package com.interview.programs;
 
 public class FindSumOfDigits {
 
+	static int factorial = 0;
+
 	public static void main(String[] args) {
-		int value = 12345;
 
-		int result = findSumOfDigit(value);
-
-		System.out.println("Some of digits: " + result);
+		generateFibonacciSeries();
 	}
 
-	private static int findSumOfDigit(int value) {
-		int sum = 0;
-		int remainder = 0;
-		while (value > 0) {
+	// 0 1 1 2 3 5 8 13 21 34 55 89.
+	private static void generateFibonacciSeries() {
 
-			remainder = value % 10;
-			value = value / 10;
-			sum += remainder;
-
-			System.out.println("Remainder: [" + remainder + "], value: [" + value + "] sum: [" + sum + "]");
+		int first = 0;
+		int second = 1;
+		// System.out.println("Fibonacci Series:");
+		System.out.println(first);
+		System.out.println(second);
+		for (int i = 0; i < 20; i++) {
+			int temp = first + second;
+			first = second;
+			second = temp;
+			System.out.println(temp);
 		}
-		return sum;
 	}
+
 }
