@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="A6FCDEEE-74F1-0143-A14A-5F214D496634" mainViewID="2A4FDE09-8C7B-D32E-C248-7A470AB5F415">
+<createdBy>anupb</createdBy>
+<createdTime>2022-02-20 05:47:49 UTC</createdTime>
+<ownerDesignName>OracleFuntions.sql</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="OracleFuntions.sql" id="7011BCFF-F9AC-E09A-625F-DF2EFA91E884" version="3.5">
+<createdBy>anupb</createdBy>
+<createdTime>2022-02-20 05:47:49 UTC</createdTime>
+<ownerDesignName>OracleFuntions.sql</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>7011BCFF-F9AC-E09A-625F-DF2EFA91E884</designId>
+</OSDM_Design>
