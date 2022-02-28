@@ -11,6 +11,7 @@ public class ComplexProgramsSolved {
 	// SwappingTwoNumbers
 	public static void main(String[] args) {
 
+		findMissingNumberFromAnArray();
 		// generateFibonacciSeries();
 		// findRecursiveFactorial(4);
 		// findFactorial(4);
@@ -22,6 +23,22 @@ public class ComplexProgramsSolved {
 		// reverserNumbers(1234567);
 		// swappingOfTwoNumbers(20, 40);
 
+	}
+
+	// Missing numbers between 1 to 100 in sorted array in java.
+	private static void findMissingNumberFromAnArray() {
+		int[] ar = { 1, 4, 5, 6, 8, 10 };
+
+		Arrays.sort(ar);
+		System.out.println("Numbers missing between 1 to 100 in array :  ");
+
+		int j = 0;
+		for (int i = 1; i < 10; i++) {
+			if (j < ar.length && i == ar[j])
+				j++;
+			else
+				System.out.print(i + " ");
+		}
 	}
 
 	// 0 1 1 2 3 5 8 13 21 34 55 89.
