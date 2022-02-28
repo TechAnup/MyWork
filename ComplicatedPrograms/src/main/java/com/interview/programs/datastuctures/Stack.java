@@ -24,7 +24,7 @@ public class Stack<T> implements Iterable<T> {
 		return list.isEmpty();
 	}
 
-	private void push(T firstElement) {
+	public void push(T firstElement) {
 		list.addLast(firstElement);
 	}
 
@@ -37,7 +37,7 @@ public class Stack<T> implements Iterable<T> {
 		if (isEmpty())
 			throw new EmptyStackException();
 
-		return list.peekLast();
+		return list.removeLast();
 	}
 
 	/**
@@ -53,4 +53,10 @@ public class Stack<T> implements Iterable<T> {
 	public Iterator<T> iterator() {
 		return list.iterator();
 	}
+
+	@Override
+	public String toString() {
+		return "Stack [list=" + list + "]";
+	}
+
 }

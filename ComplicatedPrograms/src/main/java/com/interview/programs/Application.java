@@ -1,15 +1,20 @@
 package com.interview.programs;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.interview.programs.datastuctures.Stack;
 
 public class Application {
 
 	public static void main(String[] args) {
 
-	}
+		Stack<String> strings = new Stack<String>("Anup");
+		System.out.println(strings);
+		System.out.println(strings.peek());
+		strings.push("Adi");
 
+		System.out.println(strings);
+
+		System.out.println(strings.pop());
+
+		System.out.println(strings);
+	}
 }
