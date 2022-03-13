@@ -1,20 +1,14 @@
 package com.interview.programs;
 
-import com.interview.programs.datastuctures.Stack;
+import java.util.Arrays;
+import java.util.List;
 
 public class Application {
 
 	public static void main(String[] args) {
+		List<String> listOfString = Arrays.asList("ELBOW", "LISTEN", "SMILES", "SILENT", "ARISE", "MILES", "MONEY",
+				"OPTION", "BELOW");
 
-		Stack<String> strings = new Stack<String>("Anup");
-		System.out.println(strings);
-		System.out.println(strings.peek());
-		strings.push("Adi");
-
-		System.out.println(strings);
-
-		System.out.println(strings.pop());
-
-		System.out.println(strings);
 	}
+
 }
