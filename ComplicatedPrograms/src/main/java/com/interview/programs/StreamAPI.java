@@ -13,19 +13,15 @@ import java.util.stream.Collectors;
 
 public class StreamAPI {
 	public static void main(String[] args) {
+
 		List<Integer> listOfIntegers = new ArrayList<>(Arrays.asList(10, 20, 30, 15, 50, 10, 70, 3, 17));
 
-		// Given a list of integers, find out all the even numbers exist in the list
-		// using Stream functions?
-		System.out.print("Even numbers: ");
-		listOfIntegers.stream().filter(s -> s % 2 == 0).forEach(s -> System.out.print(s + ", "));
+		// find out all the even numbers exist.
+		evenNumbersExistInList(listOfIntegers);
 
 		System.out.println();
-		// Given a list of integers, find out all the numbers starting with 1 using
-		// Stream functions?
-		System.out.print("Elements which starts with 1: ");
-		listOfIntegers.stream().map(s -> s + "") // Convert integer to String
-				.filter(s -> s.startsWith("1")).forEach(s -> System.out.print(s + ", "));
+		// find out all the numbers starting with 1.
+		findAllNumbersStartingWith1(listOfIntegers);
 
 		System.out.println();
 		// How to find duplicate elements in a given integers list in java using Stream
@@ -90,5 +86,22 @@ public class StreamAPI {
 		// Given a list of integers, sort all the values present in it in descending
 		// order using Stream functions?
 		listOfString.stream().sorted(Collections.reverseOrder()).forEach(s -> System.out.print(s + ", "));
+	}
+
+	/**
+	 * @param listOfIntegers
+	 */
+	private static void findAllNumbersStartingWith1(List<Integer> listOfIntegers) {
+		System.out.print("Elements which starts with 1: ");
+		listOfIntegers.stream().map(s -> s + "") // Convert integer to String
+				.filter(s -> s.startsWith("1")).forEach(s -> System.out.print(s + ", "));
+	}
+
+	/**
+	 * @param listOfIntegers
+	 */
+	private static void evenNumbersExistInList(List<Integer> listOfIntegers) {
+		System.out.print("Even numbers: ");
+		listOfIntegers.stream().filter(s -> s % 2 == 0).forEach(s -> System.out.print(s + ", "));
 	}
 }
