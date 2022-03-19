@@ -3,10 +3,10 @@ package com.interview.programs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -14,7 +14,9 @@ import java.util.stream.Collectors;
 public class StreamAPI {
 	public static void main(String[] args) {
 
-		List<Integer> listOfIntegers = new ArrayList<>(Arrays.asList(10, 20, 30, 15, 50, 10, 70, 3, 17));
+		List<Integer> listOfIntegers = new ArrayList<>(Arrays.asList(12, 10, 20, 30, 15, 50, 100, 70, 12, 3, 17));
+		List<String> listOfString = new ArrayList<>(
+				Arrays.asList("Anup", "Anup", "Deepali", "Adi", "Adi", "30", "15", "15"));
 
 		// find out all the even numbers exist.
 		evenNumbersExistInList(listOfIntegers);
@@ -24,58 +26,26 @@ public class StreamAPI {
 		findAllNumbersStartingWith1(listOfIntegers);
 
 		System.out.println();
-		// How to find duplicate elements in a given integers list in java using Stream
-		// functions?
-		System.out.print("Duplicate Elements: ");
-		Set<Integer> setOfIntgers = new HashSet<>();
-		listOfIntegers.stream().filter(s -> !setOfIntgers.add(s)).forEach(s -> System.out.print(s + ", "));
+		// find duplicate elements in a given integers list
+		findDuplicateElementsInGivenIntegersList(listOfIntegers);
 
 		System.out.println();
-		// Given the list of integers, find the first element of the list using Stream
-		// functions?
-		System.out.print("First Element: ");
-		System.out.println(listOfIntegers.stream().findFirst().get());
+		// find first element from list
+		findFirstElementFromList(listOfIntegers);
 
-		// Given a list of integers, find the total number of elements present in the
-		// list using Stream functions?
-		System.out.print("Count of elements: ");
-		System.out.println(listOfIntegers.stream().count());
+		// find the total number of elements
+		findTotalNumberOfElements(listOfIntegers);
 
-		// Given a list of integers, find the maximum value element present in it using
-		// Stream functions?
-		Comparator<Integer> comparator = new Comparator<Integer>() {
-
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				if (o1.equals(o2)) {
-					return 0;
-				} else if (o1 < o2) {
-					return -1;
-				} else {
-					return +1;
-				}
-			}
-		};
-		System.out.print("Max elements: ");
-		System.out.print(listOfIntegers.stream().max(comparator));
+		// find the maximum value element
+		findMaximumValueElement(listOfIntegers);
 
 		System.out.println();
-		// Given a String, find the first non-repeated character in it using Stream
-		// functions?
-		List<String> listOfString = new ArrayList<>(Arrays.asList("Anup", "Anup", "Deepali", "30", "15"));
-		System.out.print("Non repitative elements: ");
-		listOfString.stream().distinct().forEach(s -> System.out.print(s + ", "));
+		// find first non-repeated character
+		findFirstNonRepeatedCharacter(listOfString);
 
 		System.out.println();
-		// Given a String, find the first repeated character in it using Stream
-		// functions?
-		String input = "Anup is good G";
-		Character result = input.chars() // Stream of String
-				.mapToObj(s -> Character.toLowerCase(Character.valueOf((char) s)))
-				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
-				.entrySet().stream().filter(entry -> entry.getValue() > 1L).map(entry -> entry.getKey()).findFirst()
-				.get();
-		System.out.println("First repeated character in string: " + result);
+		// find the first repeated character
+		findFirstRepeatedCharacter();
 
 		// Given a list of integers, sort all the values present in it using Stream
 		// functions?
@@ -86,6 +56,60 @@ public class StreamAPI {
 		// Given a list of integers, sort all the values present in it in descending
 		// order using Stream functions?
 		listOfString.stream().sorted(Collections.reverseOrder()).forEach(s -> System.out.print(s + ", "));
+	}
+
+	/**
+	 * 
+	 */
+	private static void findFirstRepeatedCharacter() {
+		System.out.print("First repeated character:");
+		String input = "Anup is good G";
+		input.chars().mapToObj(Character::toLowerCase)
+				.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+				.entrySet().stream().filter(entry -> entry.getValue() > 1L).map(Entry::getKey).findFirst()
+				.ifPresent(System.out::println);
+	}
+
+	/**
+	 * @return
+	 */
+	private static List<String> findFirstNonRepeatedCharacter(final List<String> listOfString) {
+		System.out.print("Non repitative elements: ");
+		listOfString.stream().distinct().forEach(s -> System.out.print(s + ", "));
+		return listOfString;
+	}
+
+	/**
+	 * @param listOfIntegers
+	 */
+	private static void findMaximumValueElement(List<Integer> listOfIntegers) {
+		System.out.print("Max elements: ");
+		System.out.print(listOfIntegers.stream().max((o1, o2) -> o1.equals(o2) ? +1 : (o1 < o2) ? -1 : 0));
+	}
+
+	/**
+	 * @param listOfIntegers
+	 */
+	private static void findTotalNumberOfElements(List<Integer> listOfIntegers) {
+		System.out.print("Count of elements: ");
+		System.out.println(listOfIntegers.stream().count());
+	}
+
+	/**
+	 * @param listOfIntegers
+	 */
+	private static void findFirstElementFromList(List<Integer> listOfIntegers) {
+		System.out.print("First Element: ");
+		listOfIntegers.stream().findFirst().ifPresent(System.out::println);
+	}
+
+	/**
+	 * @param listOfIntegers
+	 */
+	private static void findDuplicateElementsInGivenIntegersList(List<Integer> listOfIntegers) {
+		System.out.print("Duplicate Elements: ");
+		Set<Integer> setOfIntgers = new HashSet<>();
+		listOfIntegers.stream().filter(s -> !setOfIntgers.add(s)).forEach(s -> System.out.print(s + ", "));
 	}
 
 	/**
