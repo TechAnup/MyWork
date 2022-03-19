@@ -17,7 +17,7 @@ public class StreamAPI {
 		List<Integer> listOfIntegers = new ArrayList<>(Arrays.asList(12, 10, 20, 30, 15, 50, 100, 70, 12, 3, 17));
 		List<String> listOfString = new ArrayList<>(
 				Arrays.asList("Anup", "Anup", "Deepali", "Adi", "Adi", "30", "15", "15"));
-
+	System.out.println("SOme changes");
 		// find out all the even numbers exist.
 		evenNumbersExistInList(listOfIntegers);
 
