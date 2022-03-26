@@ -1,7 +1,5 @@
 package com.interview.programs.java8;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -10,7 +8,7 @@ import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 public class StreamAPIWIthEmployee {
-    private static List<Employee> emploees = Arrays.asList(
+    private static final List<Employee> emploees = Arrays.asList(
             new Employee(1, "Anup", 30, 180000000, "IT"),
             new Employee(2, "Deepa", 25, 11000000, "HR"),
             new Employee(3, "Adi", 1, 10000, "RD"),
@@ -28,6 +26,16 @@ public class StreamAPIWIthEmployee {
 
         // find max and min salary
         findMaxSalary(emploees);
+
+        // print employees sorted by firstName and last name
+        printEmployeesSortedByFirstName(emploees);
+
+    }
+
+    private static void printEmployeesSortedByFirstName(List<Employee> emploees) {
+        // using method reference
+        emploees.stream().filter(e -> e.getAge() > 20).sorted(Comparator.comparing(Employee::getName).thenComparing(Employee::getSalary))
+                .forEach(System.out::println);
     }
 
     private static void findMaxSalary(final List<Employee> list) {
@@ -61,15 +69,19 @@ class Employee {
     private double salary;
     private String department;
 
-    public String getDepartment() {
-        return department;
-    }
-
     public Employee(int employeeId, String name, int age, double salary, String department) {
         this.employeeId = employeeId;
         this.name = name;
         this.age = age;
         this.salary = salary;
+        this.department = department;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
         this.department = department;
     }
 
@@ -82,10 +94,6 @@ class Employee {
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
                 '}';
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
     }
 
     /**

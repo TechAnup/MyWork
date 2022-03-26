@@ -1,11 +1,11 @@
 package com.interview.programs;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 // Find the largest common substring
-public class TerenityApp {
+public class Terenity {
     public static void main(String[] args) {
         List<Employee> emp = new ArrayList<Employee>();
         emp.add(new Employee(25, "B", "B"));

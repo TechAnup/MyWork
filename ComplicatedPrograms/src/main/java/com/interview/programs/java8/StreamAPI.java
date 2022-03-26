@@ -1,16 +1,10 @@
 package com.interview.programs.java8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamAPI {
     private static Consumer<String> println;
@@ -52,6 +46,12 @@ public class StreamAPI {
         // sort all the values
         System.out.print("Sorted List: ");
         sortValuesPresentAscendingOrder(listOfString);
+
+
+        String sorted = "bdca".chars()
+                .sorted()
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 
     /**
