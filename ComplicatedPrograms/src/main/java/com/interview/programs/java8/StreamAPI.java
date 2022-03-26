@@ -1,4 +1,4 @@
-package com.interview.programs;
+package com.interview.programs.java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
